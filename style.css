@@ -1,0 +1,222 @@
+/* ====================================
+   General & Typography
+   ==================================== */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333;
+    --light-bg: #f4f4f4;
+    --card-bg: #ffffff;
+    --border-color: #ddd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--light-bg);
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    gap: 30px;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+/* ====================================
+   Header
+   ==================================== */
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* ====================================
+   Bio Section
+   ==================================== */
+.bio-section {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.bio-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+/* ====================================
+   Skills Section (Grid)
+   ==================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-card li {
+    background-color: var(--light-bg);
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+
+/* ====================================
+   Projects Section (Flexbox)
+   ==================================== */
+.projects-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--secondary-color);
+}
+
+/* ====================================
+   Contact Section & Footer
+   ==================================== */
+.contact-aside {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    border: 2px solid var(--secondary-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-links a:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ====================================
+   Media Queries (Responsiveness)
+   ==================================== */
+
+/* Smaller screens, like mobile phones */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .bio-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .projects-flex {
+        flex-direction: column;
+    }
+
+    .project-card {
+        flex-basis: auto;
+    }
+}
+
+/* Larger screens, to make the layout more interesting */
+@media (min-width: 992px) {
+    .main-container {
+        /* A more complex grid layout for larger screens */
+        grid-template-areas:
+            "bio bio contact"
+            "skills skills contact"
+            "projects projects projects";
+    }
+
+    .bio-section {
+        grid-area: bio;
+    }
+
+    .skills-section {
+        grid-area: skills;
+    }
+
+    .projects-section {
+        grid-area: projects;
+    }
+
+    .contact-aside {
+        grid-area: contact;
+    }
+
+    .bio-content {
+        flex-direction: row;
+        text-align: left;
+    }
+}
